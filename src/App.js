@@ -11,8 +11,10 @@ function App() {
   }
   return (
     <div className="App">
-      <Navbar count={count}></Navbar>
-      <AllGun increaseCount={increaseCount}></AllGun>
+      <div className='container mx-auto'>
+        <Navbar count={count}></Navbar>
+        <AllGun increaseCount={increaseCount}></AllGun>
+      </div>
     </div>
   );
 }
