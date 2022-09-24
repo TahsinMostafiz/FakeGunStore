@@ -1,6 +1,10 @@
 import React from 'react';
+import { useState } from 'react';
+import Modal from '../Modal/Modal';
 
 const SingleGun = (props) => {
+    const [modalData, setModalData] = useState({});
+    
     const {gun, increaseCount} = props
     const {action, bullet, capacity, category, img, name, price} = gun;
     return (
@@ -18,10 +22,12 @@ const SingleGun = (props) => {
                     <h6 className='text-left font-bold'>Price : {price}</h6>
                     <div className="card-actions justify-end">
                     <button onClick={() => increaseCount()} className="btn btn-sm btn-success">Add To Cart</button>
-                    <button className="btn btn-sm btn-info">Details</button>
+                    
+                    <label onClick={()=> setModalData(gun)} htmlFor="my-modal-3" className="btn btn-sm btn-info">Details</label>
                     </div>
                 </div>
             </div>
+            {modalData && <Modal modalData={modalData} setModalData={setModalData}/>}
         </div>
     );
 };
